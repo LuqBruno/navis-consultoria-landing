@@ -9,3 +9,22 @@
 .brand{width:142px}.brand img{width:142px;height:60px;object-fit:contain}
 h1{letter-spacing:-.052em}
 @media(max-width:760px){.brand,.brand img{width:116px}.brand img{height:50px}h1{letter-spacing:-.052em}}
+
+/* O feixe sai do centro do FAROL e aponta para o cursor, sem bloquear a leitura. */
+.method-art{--beam-angle:-36deg}
+.method-art .beam{
+  pointer-events:none;
+  inset:0;
+  width:auto;
+  height:auto;
+  background:linear-gradient(90deg,rgba(244,183,134,.38),rgba(244,183,134,.14) 55%,rgba(244,183,134,.02));
+  clip-path:polygon(50% 50%,100% 8%,100% 92%);
+  transform:rotate(var(--beam-angle));
+  transform-origin:50% 50%;
+  animation:beacon-spin 18s linear infinite;
+  will-change:transform;
+}
+.method-art.is-enhanced .beam{animation:none}
+@keyframes beacon-spin{from{transform:rotate(-36deg)}to{transform:rotate(324deg)}}
+@media(hover:none),(pointer:coarse){.method-art .beam{will-change:auto}}
+@media(prefers-reduced-motion:reduce){.method-art .beam{animation:none;transform:rotate(-36deg)!important;will-change:auto}}
