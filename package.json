@@ -1,0 +1,11 @@
+{
+  "name": "navis-consultoria-previa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check script.js && node --check scripts/server.mjs && node --check scripts/build.mjs"
+  }
+}
